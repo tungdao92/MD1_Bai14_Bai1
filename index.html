@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<canvas id="myCanvas" width="200" height="100" style="border: 2px red"></canvas>
 <script>
     let HinhChuNhat = function (chieudai, chieurong) {
         this.chieudai = chieudai;
@@ -30,6 +31,13 @@
     let chuvi = chunhat.getChuVi();
     let dientich = chunhat.getDienTich();
     alert('Chiều dài =' + chieudai +'\n'+'Chiều rộng =' + chieurong+'\n'+ 'Chu vi =' + chuvi+'\n'+'Diện tích =' + dientich)
+    function veChuNhat() {
+        let c = document.getElementById("myCanvas");
+        let ctx = c.getContext("2d");
+        ctx.rect(0,0, chieurong,chieudai);
+        ctx.stroke();
+
+    }veChuNhat()
 </script>
 
 </body>
