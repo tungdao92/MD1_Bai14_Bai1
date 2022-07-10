@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let HinhChuNhat = function (chieudai, chieurong) {
+        this.chieudai = chieudai;
+        this.chieurong = chieurong;
+        this.getChieuDai = function () {
+            return this.chieudai;
+        }
+        this.getChieuRong = function () {
+            return this.chieurong;
+        }
+        this.getChuVi = function () {
+            return 2*(chieurong + chieudai);
+        }
+        this.getDienTich = function () {
+            return chieudai*chieurong;
+        }
+    }
+    let a = +prompt('Nhập chiều dài')
+    let b = +prompt('Nhập chiều rộng')
+    let chunhat = new HinhChuNhat(a,b);
+    let chieudai = chunhat.getChieuDai();
+    let chieurong = chunhat.getChieuRong();
+    let chuvi = chunhat.getChuVi();
+    let dientich = chunhat.getDienTich();
+    alert('Chiều dài =' + chieudai +'\n'+'Chiều rộng =' + chieurong+'\n'+ 'Chu vi =' + chuvi+'\n'+'Diện tích =' + dientich)
+</script>
+
+</body>
+</html>
