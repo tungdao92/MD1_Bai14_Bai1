@@ -14,20 +14,28 @@
         }
 
         getChieuDai() {
-            return this.chieudai
+            return this.chieudai;
+        }
+
+        setChieuDai(chieudai) {
+            this.chieudai = chieudai;
         }
 
         getChieuRong() {
-            return this.chieurong
+            return this.chieurong;
+        }
+
+        setChieuRong(chieurong) {
+            this.chieurong = chieurong;
         }
 
         getChuVi() {
 
-            return 2 * (this.chieudai + this.chieurong)
+            return 2 * (this.chieudai + this.chieurong);
         }
 
         getDienTich() {
-            return this.chieudai * this.chieurong
+            return this.chieudai * this.chieurong;
         }
 
     }
@@ -35,7 +43,7 @@
     function ChuViDienTich() {
         let a = +document.getElementById('chieudai').value;
         let b = +document.getElementById('chieurong').value;
-        let chunhat = new HinhChuNhat(a,b);
+        let chunhat = new HinhChuNhat(a, b);
         let chuvi = chunhat.getChuVi();
         let dientich = chunhat.getDienTich();
         document.getElementById('chuvi').innerHTML = chuvi
@@ -44,11 +52,7 @@
         let c = document.getElementById("myCanvas");
         let ctx = c.getContext("2d");
         ctx.fillStyle = "green"
-        ctx.fillRect(0,0,a,b)
-
-    }
-    function reSet() {
-
+        ctx.fillRect(30, 30, a, b)
     }
 
 </script>
@@ -75,11 +79,13 @@
             <button onclick="ChuViDienTich()">Show kết quả</button>
         </td>
         <td>
-            <button onclick="reSet()">Reset</button>
+            <button id="button" class="myClass second">click me</button>
         </td>
     </tr>
     <tr>
-        <td colspan="2"><canvas id="myCanvas" width="600px" height="400px" style="border: 3px solid red"></canvas></td>
+        <td colspan="2">
+            <canvas id="myCanvas" width="600px" height="400px" style="border: 3px solid red"></canvas>
+        </td>
     </tr>
 
 </table>
