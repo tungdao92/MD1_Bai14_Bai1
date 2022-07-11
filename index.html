@@ -5,60 +5,84 @@
     <title>Title</title>
 </head>
 <body>
-<canvas id="myCanvas" width="600px" height="400px" style="border: 3px solid red"></canvas>
+
 <script>
-    // let HinhChuNhat = function (chieudai, chieurong) {
-    //     this.chieudai = chieudai;
-    //     this.chieurong = chieurong;
-    //     this.getChieuDai = function () {
-    //         return this.chieudai;
-    //     }
-    //     this.getChieuRong = function () {
-    //         return this.chieurong;
-    //     }
-    //     this.getChuVi = function () {
-    //         return 2*(chieurong + chieudai);
-    //     }
-    //     this.getDienTich = function () {
-    //         return chieudai*chieurong;
-    //     }
-    // }
     class HinhChuNhat {
         constructor(chieudai, chieurong) {
             this.chieudai = chieudai;
             this.chieurong = chieurong;
         }
-        getChieuDai(){
+
+        getChieuDai() {
             return this.chieudai
         }
-        getChieuRong(){
+
+        getChieuRong() {
             return this.chieurong
         }
-        getChuVi (){
-            return 2*(this.chieudai + this.chieurong)
+
+        getChuVi() {
+
+            return 2 * (this.chieudai + this.chieurong)
         }
-        getDienTich (){
-            return this.chieudai*this.chieurong
+
+        getDienTich() {
+            return this.chieudai * this.chieurong
         }
 
     }
-    let a = +prompt('Nhập chiều dài')
-    let b = +prompt('Nhập chiều rộng')
-    let chunhat = new HinhChuNhat(a,b);
-    let chieudai = chunhat.getChieuDai();
-    let chieurong = chunhat.getChieuRong();
-    let chuvi = chunhat.getChuVi();
-    let dientich = chunhat.getDienTich();
-    alert('Chiều dài =' + chieudai +'\n'+'Chiều rộng =' + chieurong+'\n'+ 'Chu vi =' + chuvi+'\n'+'Diện tích =' + dientich)
-    function veChuNhat() {
+
+    function ChuViDienTich() {
+        let a = +document.getElementById('chieudai').value;
+        let b = +document.getElementById('chieurong').value;
+        let chunhat = new HinhChuNhat(a,b);
+        let chuvi = chunhat.getChuVi();
+        let dientich = chunhat.getDienTich();
+        document.getElementById('chuvi').innerHTML = chuvi
+        document.getElementById('dientich').innerHTML = dientich
+
         let c = document.getElementById("myCanvas");
         let ctx = c.getContext("2d");
-        ctx.fillRect(0,0, chieudai,chieurong);
-        ctx.strokeRect(200,0,chieudai,chieurong);
-        ctx.stroke();
+        ctx.fillStyle = "green"
+        ctx.fillRect(0,0,a,b)
 
-    }veChuNhat()
+    }
+    function reSet() {
+
+    }
+
 </script>
+
+<table border="1px" style="width: 100%">
+    <tr>
+        <td>Nhập vào chiều dài:</td>
+        <td><input type="number" id="chieudai"></td>
+    </tr>
+    <tr>
+        <td>Nhập vào chiều rộng</td>
+        <td><input type="number" id="chieurong"></td>
+    </tr>
+    <tr>
+        <td>Chu Vi hình chữ nhật là:</td>
+        <td><p id="chuvi"></p></td>
+    </tr>
+    <tr>
+        <td>DIện tích hình chữ nhật là:</td>
+        <td><p id="dientich"></p></td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="ChuViDienTich()">Show kết quả</button>
+        </td>
+        <td>
+            <button onclick="reSet()">Reset</button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><canvas id="myCanvas" width="600px" height="400px" style="border: 3px solid red"></canvas></td>
+    </tr>
+
+</table>
 
 </body>
 </html>
