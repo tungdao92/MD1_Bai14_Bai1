@@ -48,21 +48,26 @@
         let dientich = chunhat.getDienTich();
         document.getElementById('chuvi').innerHTML = chuvi
         document.getElementById('dientich').innerHTML = dientich
-
+        let x = +document.getElementById('toadox').value;
+        let y =+document.getElementById('toadoy').value;
+        let color = document.getElementById('color').value;
         let c = document.getElementById("myCanvas");
         let ctx = c.getContext("2d");
-        ctx.fillStyle = "green"
-        ctx.fillRect(30, 30, a, b)
+        ctx.strokeStyle = "blue"
+        ctx.fillStyle = color
+        ctx.fillRect(x, y, a, b)
 
     }
     function reSet() {
+        document.getElementById('toadox').innerHTML= "";
+        document.getElementById('toadoy').innerHTML= "";
         document.getElementById('chieudai').innerHTML="";
         document.getElementById('chieurong').innerHTML="";
         document.getElementById('chuvi').innerHTML="";
         document.getElementById('dientich').innerHTML="";
         let c = document.getElementById("myCanvas");
         let ctx = c.getContext("2d");
-        ctx.clearRect(0,0,ctx.chieurong,ctx.chieudai);
+        ctx.clearRect(ctx.x,ctx.y,ctx.chieurong,ctx.chieudai);
 
 
     }
@@ -87,6 +92,18 @@
         <td><p id="dientich"></p></td>
     </tr>
     <tr>
+        <td>Tọa độ x:</td>
+        <td><input type="number" id="toadox"></td>
+    </tr>
+    <tr>
+        <td>Tọa độ y:</td>
+        <td><input type="number" id="toadoy"></td>
+    </tr>
+    <tr>
+    <tr>
+        <td>Color:</td>
+        <td><input type="text" id="color"></td>
+    </tr>
         <td>
             <button onclick="ChuViDienTich()">Show kết quả</button>
         </td>
