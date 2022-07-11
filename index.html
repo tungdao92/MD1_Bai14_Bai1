@@ -53,11 +53,23 @@
         let ctx = c.getContext("2d");
         ctx.fillStyle = "green"
         ctx.fillRect(30, 30, a, b)
+
+    }
+    function reSet() {
+        document.getElementById('chieudai').innerHTML="";
+        document.getElementById('chieurong').innerHTML="";
+        document.getElementById('chuvi').innerHTML="";
+        document.getElementById('dientich').innerHTML="";
+        let c = document.getElementById("myCanvas");
+        let ctx = c.getContext("2d");
+        ctx.clearRect(0,0,ctx.chieurong,ctx.chieudai);
+
+
     }
 
 </script>
 
-<table border="1px" style="width: 100%">
+<table border="1px solid blue" style="width: 100%">
     <tr>
         <td>Nhập vào chiều dài:</td>
         <td><input type="number" id="chieudai"></td>
@@ -79,12 +91,12 @@
             <button onclick="ChuViDienTich()">Show kết quả</button>
         </td>
         <td>
-            <button id="button" class="myClass second">click me</button>
+            <button id="button" onclick="reSet()">Reset</button>
         </td>
     </tr>
     <tr>
-        <td colspan="2">
-            <canvas id="myCanvas" width="600px" height="400px" style="border: 3px solid red"></canvas>
+        <td colspan="2" style="text-align: center">
+            <canvas id="myCanvas" width="900px" height="400px" style="border: 3px solid red"></canvas>
         </td>
     </tr>
 
