@@ -5,23 +5,42 @@
     <title>Title</title>
 </head>
 <body>
-<canvas id="myCanvas" width="200" height="100" style="border: 5px solid red"></canvas>
+<canvas id="myCanvas" width="600px" height="400px" style="border: 3px solid red"></canvas>
 <script>
-    let HinhChuNhat = function (chieudai, chieurong) {
-        this.chieudai = chieudai;
-        this.chieurong = chieurong;
-        this.getChieuDai = function () {
-            return this.chieudai;
+    // let HinhChuNhat = function (chieudai, chieurong) {
+    //     this.chieudai = chieudai;
+    //     this.chieurong = chieurong;
+    //     this.getChieuDai = function () {
+    //         return this.chieudai;
+    //     }
+    //     this.getChieuRong = function () {
+    //         return this.chieurong;
+    //     }
+    //     this.getChuVi = function () {
+    //         return 2*(chieurong + chieudai);
+    //     }
+    //     this.getDienTich = function () {
+    //         return chieudai*chieurong;
+    //     }
+    // }
+    class HinhChuNhat {
+        constructor(chieudai, chieurong) {
+            this.chieudai = chieudai;
+            this.chieurong = chieurong;
         }
-        this.getChieuRong = function () {
-            return this.chieurong;
+        getChieuDai(){
+            return this.chieudai
         }
-        this.getChuVi = function () {
-            return 2*(chieurong + chieudai);
+        getChieuRong(){
+            return this.chieurong
         }
-        this.getDienTich = function () {
-            return chieudai*chieurong;
+        getChuVi (){
+            return 2*(this.chieudai + this.chieurong)
         }
+        getDienTich (){
+            return this.chieudai*this.chieurong
+        }
+
     }
     let a = +prompt('Nhập chiều dài')
     let b = +prompt('Nhập chiều rộng')
@@ -34,8 +53,8 @@
     function veChuNhat() {
         let c = document.getElementById("myCanvas");
         let ctx = c.getContext("2d");
-        ctx.beginPath();
-        ctx.rect(0,0, chieudai,chieurong);
+        ctx.fillRect(0,0, chieudai,chieurong);
+        ctx.strokeRect(200,0,chieudai,chieurong);
         ctx.stroke();
 
     }veChuNhat()
